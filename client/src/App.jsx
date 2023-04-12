@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import Customizer from "./pages/Customizer";
 import Home from "./pages/Home";
-import Canvas from "./canvas/Canvas";
+import CanvasModel from "./canvas/CanvasModel";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -10,7 +10,7 @@ function App() {
   return (
     <main className="app transition-all">
       <Home></Home>
-      <Canvas></Canvas>
+      <CanvasModel></CanvasModel>
       <Customizer></Customizer>
     </main>
   );
