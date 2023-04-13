@@ -2,10 +2,10 @@ import React from "react";
 import { useSnapshot } from "valtio";
 import state from "../store";
 
-export default function Tab({ isFilterTab, isActiveTab, handleClick, tab }) {
+export default function Tab({ isFilterTab, isActive, handleClick, tab }) {
   const snap = useSnapshot(state);
   const activeStyles =
-    isFilterTab && isActiveTab
+    isFilterTab && isActive
       ? { backgroundColor: snap.color, opacity: 0.5 }
       : { backgroundColor: "transparent", opacity: 1 };
   return (
