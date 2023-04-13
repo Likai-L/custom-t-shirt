@@ -60,6 +60,21 @@ function Customizer() {
     });
   };
 
+  const handleSubmit = async (type) => {
+    if (!prompt) {
+      return alert("Please enter a prompt");
+    }
+    try {
+      setGeneratingImage(true);
+      // call backend to generate an ai image
+    } catch (error) {
+      alert(error);
+    } finally {
+      setGeneratingImage(false);
+      setActiveEditorTab("");
+    }
+  };
+
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case "colorpicker":
@@ -67,7 +82,14 @@ function Customizer() {
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
       case "aipicker":
-        return <AIPicker />;
+        return (
+          <AIPicker
+            prompt={prompt}
+            setPrompt={prompt}
+            generatingImage={generatingImage}
+            handleSubmit={handleSubmit}
+          />
+        );
       default:
         return null;
     }
