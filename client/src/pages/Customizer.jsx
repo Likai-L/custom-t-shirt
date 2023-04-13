@@ -4,8 +4,7 @@ import { useSnapshot } from "valtio";
 
 import config from "../config/config";
 import state from "../store";
-import { download } from "../assets";
-import { downloadCanvasToImage, reader } from "../config/helpers";
+import { reader } from "../config/helpers";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import {
@@ -67,7 +66,8 @@ function Customizer() {
     try {
       setGeneratingImage(true);
       // call backend to generate an ai image
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
+      const { backendUrl } = config.production;
+      const response = await fetch(backendUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
