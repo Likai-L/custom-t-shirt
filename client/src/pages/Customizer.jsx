@@ -77,7 +77,7 @@ function Customizer() {
         }),
       });
       const data = await response.json();
-      handleDecals(type, `data:image/png;base64,${data.photo}`);
+      handleDecals(type, `data:image/png;base64,${data.image}`);
     } catch (error) {
       alert(error);
     } finally {
