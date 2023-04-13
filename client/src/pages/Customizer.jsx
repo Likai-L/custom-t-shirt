@@ -26,7 +26,7 @@ function Customizer() {
   const [activeEditorTab, setActiveEditorTab] = useState("");
   const [activeFilterTab, setActiveFilterTab] = useState({
     logoShirt: true,
-    stylishShirt: false,
+    textureShirt: false,
   });
 
   // toggle the display of the passed in texture
@@ -35,13 +35,14 @@ function Customizer() {
       case "logoShirt":
         state.isLogoTexture = !activeFilterTab[tabName];
         break;
-      case "stylishShirt":
+      case "textureShirt":
         state.isFullTexture = !activeFilterTab[tabName];
         break;
       default:
         state.isLogoTexture = true;
         state.isFullTexture = false;
     }
+    setActiveFilterTab((prev) => ({ ...prev, [tabName]: !prev[tabName] }));
   };
 
   const handleDecals = (type, result) => {
@@ -120,9 +121,9 @@ function Customizer() {
               <Tab
                 key={tab.name}
                 tab={tab}
-                handleClick={() => {}}
+                handleClick={() => handleActiveFilterTab(tab.name)}
                 isFilterTab
-                isActiveTab=""
+                isActive={activeFilterTab[tab.name]}
               />
             ))}
           </motion.div>
