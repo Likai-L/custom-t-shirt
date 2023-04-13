@@ -26,7 +26,7 @@ function Home() {
           </motion.header>
           <motion.div className="home-content" {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
-              <h1 className="head-text">Create Your Own Shirt</h1>
+              <h1 className="head-text">Be Your Own Designer</h1>
             </motion.div>
             <motion.div
               {...headContentAnimation}
