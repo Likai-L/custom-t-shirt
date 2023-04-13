@@ -77,7 +77,11 @@ function Customizer() {
         }),
       });
       const data = await response.json();
-      handleDecals(type, `data:image/png;base64,${data.image}`);
+      if (data.image) {
+        handleDecals(type, `data:image/png;base64,${data.image}`);
+      } else {
+        alert("No image came back.");
+      }
     } catch (error) {
       alert(error);
     } finally {
