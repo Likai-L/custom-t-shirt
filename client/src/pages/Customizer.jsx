@@ -85,7 +85,7 @@ function Customizer() {
         return (
           <AIPicker
             prompt={prompt}
-            setPrompt={prompt}
+            setPrompt={setPrompt}
             generatingImage={generatingImage}
             handleSubmit={handleSubmit}
           />
